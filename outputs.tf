@@ -9,23 +9,18 @@ output "cluster_certificate_authority_data" {
 }
 
 output "cluster_endpoint" {
-  description = "Endpoint for your Kubernetes API server"
+  description = "Kubernetes API server Endpoint URL"
   value       = try(module.eks.cluster_endpoint, null)
 }
 
 output "cluster_id" {
-  description = "The ID of the EKS cluster. Note: currently a value is returned only for local EKS clusters created on Outposts"
+  description = "EKS Cluster ID"
   value       = try(module.eks.cluster_id, null)
 }
 
 output "cluster_name" {
   description = "The name of the EKS cluster"
   value       = try(module.eks.cluster_name, null)
-}
-
-output "cluster_oidc_issuer_url" {
-  description = "The URL on the EKS cluster for the OpenID Connect identity provider"
-  value       = try(module.eks.cluster_oidc_issuer_url, null)
 }
 
 output "cluster_version" {
@@ -36,11 +31,6 @@ output "cluster_version" {
 output "cluster_platform_version" {
   description = "Platform version for the cluster"
   value       = try(module.eks.cluster_platform_version, null)
-}
-
-output "cluster_status" {
-  description = "Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`"
-  value       = try(module.eks.cluster_status, null)
 }
 
 output "cluster_primary_security_group_id" {
@@ -68,21 +58,6 @@ output "node_security_group_id" {
   value       = try(module.eks.node_security_group_id, null)
 }
 
-output "oidc_provider" {
-  description = "The OpenID Connect identity provider (issuer URL without leading `https://`)"
-  value       = try(replace(module.eks.oidc_provider, "https://", ""), null)
-}
-
-output "oidc_provider_arn" {
-  description = "The ARN of the OIDC Provider if `enable_irsa = true`"
-  value       = try(module.eks.oidc_provider_arn, null)
-}
-
-output "cluster_tls_certificate_sha1_fingerprint" {
-  description = "The SHA1 fingerprint of the public key of the cluster's certificate"
-  value       = try(module.eks.cluster_tls_certificate_sha1_fingerprint, null)
-}
-
 output "cluster_iam_role_name" {
   description = "IAM role name of the EKS cluster"
   value       = try(module.eks.cluster_iam_role_name, null)
@@ -91,11 +66,6 @@ output "cluster_iam_role_name" {
 output "cluster_iam_role_arn" {
   description = "IAM role ARN of the EKS cluster"
   value       = try(module.eks.cluster_iam_role_arn, null)
-}
-
-output "cluster_iam_role_unique_id" {
-  description = "Stable and unique string identifying the IAM role"
-  value       = try(module.eks.cluster_iam_role_unique_id, null)
 }
 
 output "cloudwatch_log_group_name" {
