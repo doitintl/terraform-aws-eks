@@ -58,29 +58,6 @@ variable "enable_irsa" {
   default     = true
 }
 
-variable "manage_aws_auth_configmap" {
-  description = "Determines whether to manage the aws-auth configmap"
-  type        = bool
-}
-
-variable "aws_auth_roles" {
-  description = "List of role maps to add to the aws-auth configmap"
-  type        = list(any)
-  default     = []
-}
-
-variable "aws_auth_users" {
-  description = "List of user maps to add to the aws-auth configmap"
-  type        = list(any)
-  default     = []
-}
-
-variable "aws_auth_accounts" {
-  description = "List of account maps to add to the aws-auth configmap"
-  type        = list(any)
-  default     = []
-}
-
 variable "eks_managed_node_group_defaults" {
   description = "Map of EKS managed node group default configurations"
   type        = any
