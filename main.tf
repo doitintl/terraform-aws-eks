@@ -13,7 +13,6 @@ module "eks" {
   kms_key_administrators               = var.kms_key_administrators
   enable_irsa                          = var.enable_irsa
   cluster_addons                       = var.cluster_addons
-  manage_aws_auth_configmap            = false
   eks_managed_node_group_defaults      = var.eks_managed_node_group_defaults
   eks_managed_node_groups              = var.eks_managed_node_groups
   tags                                 = var.tags
